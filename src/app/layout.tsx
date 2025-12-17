@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     'digitálna transformácia',
     'AI pre firmy',
     'Slovensko',
+    'Bratislava',
+    'Česko',
     'malé a stredné firmy',
     'SME',
     'Peter Holic'
@@ -88,6 +90,7 @@ const jsonLd = {
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'SK',
+    addressLocality: 'Bratislava',
   },
   founder: {
     '@type': 'Person',
@@ -96,14 +99,66 @@ const jsonLd = {
     url: 'https://peterholic.com',
   },
   areaServed: {
-    '@type': 'Country',
-    name: 'Slovakia',
+    '@type': 'GeoCircle',
+    geoMidpoint: {
+      '@type': 'GeoCoordinates',
+      latitude: 48.1486,
+      longitude: 17.1077,
+    },
+    geoRadius: 400000, // ~400 km pokryje SK + CZ
   },
   serviceType: ['AI Consulting', 'AI Implementation', 'AI Audit', 'Business Automation'],
   priceRange: '€€',
   sameAs: [
     'https://linkedin.com/in/peterholic',
     'https://twitter.com/peterholic',
+  ],
+}
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Pre aké firmy sú vaše služby vhodné?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Pre malé a stredné firmy (10-250 zamestnancov) v službách, výrobe, e-commerce a marketingu.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Koľko stojí AI audit?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Základný AI audit je zadarmo. Detailný audit s roadmapou je súčasťou konzultačného balíka.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Dokážete dodať riešenia v slovenčine/češtine?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Áno, pracujem so slovenskými a českými datasetmi a prispôsobím jazyk aj tone-of-voice.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Ako dlho trvá implementácia AI riešení?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Jednoduchá automatizácia 1-2 týždne, komplexné integrácie 2-3 mesiace podľa rozsahu.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Aké dáta potrebujem na štart?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Základný prehľad o nástrojoch (CRM/ERP/e-shop), dostupné exporty alebo databázu a zoznam procesov, ktoré chcete automatizovať.',
+      },
+    },
   ],
 }
 
@@ -123,6 +178,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
       </head>
       <body className="antialiased">
         {children}
@@ -130,3 +189,4 @@ export default function RootLayout({
     </html>
   )
 }
+

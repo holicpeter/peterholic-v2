@@ -176,6 +176,73 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Stats / Trust Section */}
+      <section className="py-20 border-t border-[hsl(222,30%,18%)] border-b border-[hsl(222,30%,18%)] bg-[hsl(222,47%,8%)]">
+        <div className="container mx-auto px-8">
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            {[
+              { label: 'Firiem na Slovensku', value: '25+', desc: 'malé a stredné podniky' },
+              { label: 'AI projektov', value: '40+', desc: 'automatizácia, chatboty, integrácie' },
+              { label: 'Rokov skúseností', value: '8+', desc: 'AI, data & automation' },
+              { label: 'Priemerná úspora času', value: '30–50 %', desc: 'po nasadení AI' },
+            ].map((item) => (
+              <div key={item.label} className="p-6 rounded-2xl bg-[hsl(222,47%,6%)] border border-[hsl(222,30%,18%)]">
+                <div className="text-3xl font-bold text-[hsl(199,89%,48%)] mb-2">{item.value}</div>
+                <div className="text-lg font-semibold mb-1">{item.label}</div>
+                <div className="text-[hsl(215,20%,55%)]">{item.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries / Geo focus */}
+      <section className="py-20">
+        <div className="container mx-auto px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Lokálny fokus: Slovensko & Česko</h2>
+              <p className="text-lg text-[hsl(215,20%,55%)] mb-6 leading-relaxed">
+                Pracujem hlavne s firmami v Bratislave, Košiciach a Prahe. Poznám lokálne prostredie,
+                legislatívu aj dostupné dátové zdroje. Všetky riešenia sú pripravené pre slovenský a český trh.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {[
+                  'Služby a konzulting',
+                  'E-commerce a retail',
+                  'Výroba a logistika',
+                  'Fintech a poistovníctvo',
+                  'Real estate',
+                  'Marketingové agentúry',
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <Check className="w-5 h-5 text-[hsl(199,89%,48%)]" />
+                    <span className="text-[hsl(210,40%,98%)]">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-[hsl(222,47%,8%)] border border-[hsl(222,30%,18%)] rounded-2xl p-8">
+              <h3 className="text-2xl font-bold mb-4">Typické výsledky</h3>
+              <ul className="space-y-3 text-[hsl(215,20%,55%)]">
+                <li className="flex gap-3 items-start">
+                  <Sparkles className="w-5 h-5 text-[hsl(32,95%,55%)] mt-1" />
+                  <span>Automatizácia reportingov a administratívy (úspora 2–4h/deň na človeka)</span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <Sparkles className="w-5 h-5 text-[hsl(32,95%,55%)] mt-1" />
+                  <span>AI chatbot pre zákaznícku podporu (pokrytie 60–80 % požiadaviek)</span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <Sparkles className="w-5 h-5 text-[hsl(32,95%,55%)] mt-1" />
+                  <span>Lead scoring a personalizácia marketingu (konverzie +10–25 %)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section id="proces" className="py-24">
         <div className="container mx-auto px-8">
@@ -201,6 +268,41 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                 <p className="text-[hsl(215,20%,55%)]">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-24 bg-[hsl(222,47%,8%)] border-t border-b border-[hsl(222,30%,18%)]">
+        <div className="container mx-auto px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">Čo hovoria klienti</h2>
+            <p className="text-[hsl(215,20%,55%)]">Krátke príklady z praxe (Slovensko & Česko)</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                quote: 'Peter nám pomohol zautomatizovať reporting aj odpovede na e-maily. Úspora cca 3 hodiny denne.',
+                name: 'Martina, e-commerce',
+                result: 'Automatizácia komunikácie + reporting'
+              },
+              {
+                quote: 'AI chatbot pokryl 70 % otázok zákazníkov. Podpora stíha viac a ľudia sú spokojnejší.',
+                name: 'Juraj, SaaS',
+                result: 'AI podpora zákazníkov'
+              },
+              {
+                quote: 'Zavedenie AI do procesov skrátilo čas na spracovanie objednávok o 40 %.',
+                name: 'Lenka, logistika',
+                result: 'Optimalizácia procesov'
+              },
+            ].map((item) => (
+              <div key={item.name} className="p-8 rounded-2xl bg-[hsl(222,47%,6%)] border border-[hsl(222,30%,18%)] shadow-lg">
+                <p className="text-lg font-semibold mb-4 text-[hsl(210,40%,98%)]">“{item.quote}”</p>
+                <div className="text-[hsl(215,20%,55%)] mb-1">{item.result}</div>
+                <div className="text-[hsl(199,89%,48%)] font-semibold">{item.name}</div>
               </div>
             ))}
           </div>
@@ -233,6 +335,18 @@ export default function Home() {
               {
                 q: 'Potrebujem mať technický tím?',
                 a: 'Nie, nie je to potrebné. Riešenia navrhujem tak, aby ich vedel používať každý. Poskytnem aj školenie pre váš tím.'
+              },
+              {
+                q: 'Dokážete dodať riešenia v slovenčine/češtine?',
+                a: 'Áno. Pracujem so slovenskými a českými datasetmi, prispôsobím jazyk aj tone-of-voice a vyladím presnosť na lokálne dáta.'
+              },
+              {
+                q: 'Aké dáta potrebujem na štart?',
+                a: 'Stačí základný prehľad: aké nástroje používate (CRM/ERP/e-shop), kde sa nachádzajú vaše dáta (Google Sheets, databáza, exporty) a čo chcete automatizovať.'
+              },
+              {
+                q: 'Ako prebieha spolupráca?',
+                a: '1) Úvodná konzultácia → 2) Bezplatný AI audit → 3) Roadmapa → 4) Pilotný projekt → 5) Plná integrácia + školenie.'
               },
             ].map((faq, index) => (
               <details key={index} className="group bg-[hsl(222,47%,8%)] border border-[hsl(222,30%,18%)] rounded-xl">
@@ -359,3 +473,4 @@ export default function Home() {
     </div>
   )
 }
+
