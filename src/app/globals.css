@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-accent-600;
+  }
+  
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-700;
+  }
+  
+  .bg-gradient-hero {
+    @apply bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900;
+  }
+}
