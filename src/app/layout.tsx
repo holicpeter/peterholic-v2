@@ -170,10 +170,8 @@ export default function RootLayout({
   return (
     <html lang="sk">
       <head>
-        <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
-        <link rel="icon" href="/favicon-64.png" sizes="64x64" type="image/png" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/favicon-64.png" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
         <link rel="manifest" href="/manifest.json" />
         <script
           type="application/ld+json"
